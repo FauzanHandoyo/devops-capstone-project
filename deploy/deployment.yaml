@@ -1,0 +1,6 @@
+spec:
+  template:
+    spec:
+      containers:
+      - image: us.icr.io/sn-labs-fauzancoding/accounts:1
+        name: accounts
