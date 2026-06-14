@@ -6,12 +6,17 @@ and SQL database
 """
 import sys
 from flask import Flask
+from flask_talisman import Talisman  # Import Flask-Talisman
 from service import config
 from service.common import log_handlers
 
 # Create Flask application
 app = Flask(__name__)
 app.config.from_object(config)
+
+# Initialize Talisman Security Headers
+# Note: force_https=False allows your local unit tests and local curl commands to work over HTTP
+talisman = Talisman(app, force_https=False)
 
 # Import the routes After the Flask app is created
 # pylint: disable=wrong-import-position, cyclic-import, wrong-import-order
